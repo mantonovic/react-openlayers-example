@@ -1,3 +1,6 @@
+# OpenLayers 7 with ReactJS 18
+
+Example on how to use OpenLayers 7 with ReactJS in functional components.
 
 Install dependencies
 
@@ -25,9 +28,16 @@ docker run --rm -it \
 
 Open http://localhost:3000
 
+## Initialize the Map
+
 There are two implementations.
 
 1) Using the global window object
 2) Using the context object 
 
 Check in the index.js file. You can switch between the two implementations by commenting out the code.
+
+
+## Enable / disable interactions
+
+The interactions is added to the Map during the initialization. Then it is enabled / disabled by calling the enable / disable methods.
