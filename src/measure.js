@@ -6,6 +6,18 @@ const Measure = (props) => {
 
   const map = React.useContext(MapContext);
 
+  const getLayer = () => {
+    if (map !== null) {
+      return map.getLayers().getArray().find((layer) => {
+        if (layer.get("name") === "measure-layer") {
+          return true;
+        }
+        return false;
+      });
+    }
+    return null;
+  };
+
   return (
     <div
       style={{
@@ -25,6 +37,19 @@ const Measure = (props) => {
         }}
       >
         Enable / Disable Measure
+      </button>
+      <button
+        style={{
+          fontSize: "inherit",
+        }}
+        onClick={() => {
+          const layer = getLayer();
+          if (layer !== null) {
+            layer.getSource().clear();
+          }
+        }}
+      >
+        Clear
       </button>
     </div>
   );
